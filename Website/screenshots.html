@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshots - OpenMeal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* TikTok Sans font-family declarations */
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'TikTok Sans', sans-serif;
+            background-color: #151718;
+            color: #ECEDEE;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #151718;
+            border-bottom: 1px solid #262a2c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            text-decoration: none;
+        }
+
+        .back-button {
+            color: #ECEDEE;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #9BA1A6;
+        }
+
+        /* Main Content */
+        main {
+            min-height: 80vh;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e2021 0%, #151718 100%);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ECEDEE;
+            margin-bottom: 2rem;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 80%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .screenshot-description {
+            font-size: 0.875rem;
+            color: #9BA1A6;
+            line-height: 1.5;
+            font-weight: 400;
+            margin-top: 0.75rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">OpenMeal</div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">Screenshots</h1>
+            <div class="gallery">
+                <div class="screenshot-item">
+                    <img src="App Screenshots/1.png" alt="App icon on Android homescreen">
+                    <div class="screenshot-description">App icon on Android homescreen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/2.png" alt="App splash screen (shown mid app open animation)">
+                    <div class="screenshot-description">App splash screen (shown mid app open animation)</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/3.png" alt="Open page">
+                    <div class="screenshot-description">Open page</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/4.png" alt="Open page (cont)">
+                    <div class="screenshot-description">Open page (cont)</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/5.png" alt="Age text box">
+                    <div class="screenshot-description">Age text box</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/6.png" alt="Gender text box">
+                    <div class="screenshot-description">Gender text box</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/7.png" alt="Height screen; using spinner modal">
+                    <div class="screenshot-description">Height screen; using spinner modal</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/8.png" alt="Activity level screen">
+                    <div class="screenshot-description">Activity level screen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/9.png" alt="Weight goal screen">
+                    <div class="screenshot-description">Weight goal screen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/10.png" alt="Daily goals result">
+                    <div class="screenshot-description">Daily goals result</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/11.png" alt="Daily goals are editable">
+                    <div class="screenshot-description">Daily goals are editable</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/12.png" alt="Bring Your Own Key model disclosure">
+                    <div class="screenshot-description">Bring Your Own Key model disclosure</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/13.png" alt="Bring Your Own Key model disclosure (cont)">
+                    <div class="screenshot-description">Bring Your Own Key model disclosure (cont)</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/14.png" alt="API key entrance screen">
+                    <div class="screenshot-description">API key entrance screen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/15.png" alt="API key entrance screen with API key entered">
+                    <div class="screenshot-description">API key entrance screen with API key entered</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/16.png" alt="AI model choice screen">
+                    <div class="screenshot-description">AI model choice screen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/17.png" alt="AI model choice screen, with custom model">
+                    <div class="screenshot-description">AI model choice screen, with custom model</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/18.png" alt="Home screen">
+                    <div class="screenshot-description">Home screen</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/19.png" alt="Add Meal page">
+                    <div class="screenshot-description">Add Meal page</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/20.png" alt="Add meal page (after photo is taken)">
+                    <div class="screenshot-description">Add meal page (after photo is taken)</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/21.png" alt="Add comment popup">
+                    <div class="screenshot-description">Add comment popup</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/22.png" alt="Add meal page with comment entered">
+                    <div class="screenshot-description">Add meal page with comment entered</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/23.png" alt="Meal being analyzed on Home page; shows random flavor text">
+                    <div class="screenshot-description">Meal being analyzed on Home page; shows random flavor text</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/24.png" alt="Meal logged in card on timeline">
+                    <div class="screenshot-description">Meal logged in card on timeline</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/25.png" alt="Meal detail page">
+                    <div class="screenshot-description">Meal detail page</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/26.png" alt="Meal detail page (cont; showing Meal Insights)">
+                    <div class="screenshot-description">Meal detail page (cont; showing Meal Insights)</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/27.png" alt="Add meal page when Before & After feature is used">
+                    <div class="screenshot-description">Add meal page when Before & After feature is used</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/28.png" alt="Meal showing on timeline when Before & After is used">
+                    <div class="screenshot-description">Meal showing on timeline when Before & After is used</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/29.png" alt="Meal detail page when Before & After is used">
+                    <div class="screenshot-description">Meal detail page when Before & After is used</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/30.png" alt="Profile tab; showing Calories: Week chart">
+                    <div class="screenshot-description">Profile tab; showing Calories: Week chart</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/31.png" alt="Profile tab; showing Calories: Week chart when a value is selected">
+                    <div class="screenshot-description">Profile tab; showing Calories: Week chart when a value is selected</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/32.png" alt="Profile tab; showing Protein: Week chart">
+                    <div class="screenshot-description">Profile tab; showing Protein: Week chart</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/33.png" alt="Profile tab; showing Fats: Week chart">
+                    <div class="screenshot-description">Profile tab; showing Fats: Week chart</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/34.png" alt="Profile tab; showing Carbs: Week chart">
+                    <div class="screenshot-description">Profile tab; showing Carbs: Week chart</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/35.png" alt="Meal Reminders page">
+                    <div class="screenshot-description">Meal Reminders page</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/36.png" alt="Add Custom Meal Reminder popup">
+                    <div class="screenshot-description">Add Custom Meal Reminder popup</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/37.png" alt="Time selector for Custom Meal Reminder">
+                    <div class="screenshot-description">Time selector for Custom Meal Reminder</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/38.png" alt="Custom meal added">
+                    <div class="screenshot-description">Custom meal added</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/39.png" alt="MIT License in profile tab shown">
+                    <div class="screenshot-description">MIT License in profile tab shown</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/40.png" alt="About the author and About OpenMeal sections of Profile shown">
+                    <div class="screenshot-description">About the author and About OpenMeal sections of Profile shown</div>
+                </div>
+                <div class="screenshot-item">
+                    <img src="App Screenshots/41.png" alt="Example notification shown">
+                    <div class="screenshot-description">Example notification shown</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

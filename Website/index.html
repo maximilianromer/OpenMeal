@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMeal - Free And Open Source AI Meal Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* TikTok Sans font-family declarations */
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'TikTok Sans', sans-serif;
+            background-color: #151718;
+            color: #ECEDEE;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #151718;
+            border-bottom: 1px solid #262a2c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ECEDEE;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #9BA1A6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ECEDEE;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e2021 0%, #151718 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ECEDEE;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: #9BA1A6;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #ECEDEE;
+            color: #151718;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 237, 238, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ECEDEE;
+            padding: 0.75rem 1.5rem;
+            border: 1.5px solid #262a2c;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ECEDEE;
+            background-color: #1e2021;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(236, 237, 238, 0.1);
+        }
+
+        .btn-disabled {
+            background-color: #3A3D3F;
+            color: #9BA1A6;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: not-allowed;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Marketing Cards Section */
+        .marketing-cards {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #151718 0%, #1e2021 100%);
+        }
+
+        .marketing-card {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            padding: 3.5rem;
+            background: linear-gradient(135deg, #262a2c 0%, #1e2021 100%);
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            border: 1px solid rgba(236, 237, 238, 0.1);
+        }
+
+        .marketing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            border-color: rgba(236, 237, 238, 0.15);
+        }
+
+        .marketing-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .marketing-card.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .card-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .marketing-card.reverse .card-content {
+            padding-right: 0;
+            padding-left: 2rem;
+        }
+
+        .card-content h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .card-content p {
+            font-size: 1.1rem;
+            color: #B8BCC0;
+            line-height: 1.7;
+        }
+
+        .card-image {
+            flex: 0 0 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image img {
+            max-width: 100%;
+            max-height: 700px;
+            width: auto;
+            height: auto;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation delays */
+        .marketing-card:nth-child(1) { animation-delay: 0.1s; }
+        .marketing-card:nth-child(2) { animation-delay: 0.2s; }
+        .marketing-card:nth-child(3) { animation-delay: 0.3s; }
+        .marketing-card:nth-child(4) { animation-delay: 0.4s; }
+        .marketing-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-disabled {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .marketing-cards {
+                padding: 4rem 0;
+            }
+
+            .marketing-card {
+                flex-direction: column;
+                gap: 2rem;
+                margin-bottom: 3rem;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .marketing-card.reverse {
+                flex-direction: column;
+            }
+
+            .card-content {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            .marketing-card.reverse .card-content {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            .card-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-content p {
+                font-size: 0.95rem;
+            }
+
+            .card-image {
+                flex: 0 0 auto;
+                order: -1;
+            }
+
+            .card-image img {
+                max-height: 280px;
+            }
+        }
+
+        /* Screenshots and Prompts Buttons Section */
+        .screenshots-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e2021 0%, #151718 100%);
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .screenshots-button,
+        .prompts-button {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            text-decoration: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(236, 237, 238, 0.1);
+        }
+
+        .screenshots-button {
+            background-image: url('screenshotspagepreview.png');
+        }
+
+        .prompts-button {
+            background-image: url('promptpagepreview.png');
+        }
+
+        .screenshots-button:hover,
+        .prompts-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .screenshots-button::before,
+        .prompts-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+            z-index: 1;
+        }
+
+        .screenshots-button-content,
+        .prompts-button-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 2;
+            text-align: left;
+            color: #ECEDEE;
+            font-weight: 800;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .screenshots-button-content i,
+        .prompts-button-content i {
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .buttons-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .screenshots-button,
+            .prompts-button {
+                width: 100%;
+                height: 250px;
+            }
+
+            .screenshots-button-content,
+            .prompts-button-content {
+                font-size: 1.5rem;
+                bottom: 15px;
+                left: 15px;
+            }
+        }
+
+        /* Author Card Section */
+        .author-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1e2021 0%, #151718 100%);
+        }
+
+        .author-card h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            margin: 0;
+            text-align: left;
+        }
+
+        .author-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #1e2021;
+            border-radius: 16px;
+            padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+            border: 1px solid rgba(236, 237, 238, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .author-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .author-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .author-image {
+            flex-shrink: 0;
+        }
+
+        .author-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(236, 237, 238, 0.1);
+        }
+
+        .author-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-info .title {
+            font-size: 1.1rem;
+            color: #9BA1A6;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .author-info p {
+            color: #9BA1A6;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .author-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ECEDEE;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .author-link:hover {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
+        .author-link i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .author-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .author-card {
+                padding: 2rem;
+            }
+
+            .author-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .author-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">OpenMeal</div>
+            <div class="nav-links">
+                <a href="screenshots.html">Screenshots</a>
+                <a href="prompts.html">Prompts</a>
+                <a href="https://github.com/maximilianromer/OpenMeal" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Free And Open Source AI Meal Tracking</h1>
+                        <p>Track your nutrition effortlessly with AI-powered image analysis. Powered by Google Gemini's free models.</p>
+                        <div class="hero-buttons">
+                            <a href="Downloads/OpenMeal-v1.0.apk" class="btn-primary" download>
+                                <i class="fa-brands fa-android" aria-hidden="true"></i> Download v1.0 APK
+                            </a>
+                            <a href="#" class="btn-disabled" aria-disabled="true">
+                                <i class="fa-brands fa-apple" aria-hidden="true"></i> Coming soon
+                            </a>
+                            <a href="https://github.com/maximilianromer/OpenMeal" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i> View source
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="8cbbb889-ea7e-42d5-b429-067f1e01c518-left.png" alt="OpenMeal App Interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="marketing-cards">
+            <div class="container">
+                <!-- Card 1: All you need is a photo -->
+                <div class="marketing-card">
+                    <div class="card-content">
+                        <h2>All you need is a photo</h2>
+                        <p>OpenMeal uses multimodal LLM image analysis to extract accurate nutritional information from just a photo. You can always add a comment for more accuracy.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="Homepage Source/photoscreen.png" alt="OpenMeal photo analysis interface">
+                    </div>
+                </div>
+
+                <!-- Card 2: Get meal insights -->
+                <div class="marketing-card reverse">
+                    <div class="card-content">
+                        <h2>Get meal insights</h2>
+                        <p>OpenMeal estimates the calories, protein, fats, and carb content of each meal. It also provides nuanced advice about the healthy and unhealthy aspects of each meal, so you can make better health decisions.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="Homepage Source/mealinsights.png" alt="OpenMeal meal insights interface">
+                    </div>
+                </div>
+
+                <!-- Card 3: Track your progress -->
+                <div class="marketing-card">
+                    <div class="card-content">
+                        <h2>Track your progress</h2>
+                        <p>Hit your goals with an easy-to-use chart feature.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="Homepage Source/trackprogress.png" alt="OpenMeal progress tracking interface">
+                    </div>
+                </div>
+
+                <!-- Card 4: Use top intelligence -->
+                <div class="marketing-card reverse">
+                    <div class="card-content">
+                        <h2>Use top intelligence</h2>
+                        <p>Feeling extra hungry today? OpenMeal uses your own Gemini API key, which means that you can log hundreds of meals a day for free.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="Homepage Source/useintelligence.png" alt="OpenMeal AI intelligence interface">
+                    </div>
+                </div>
+
+                <!-- Card 5: Before & After -->
+                <div class="marketing-card">
+                    <div class="card-content">
+                        <h2>Before & After</h2>
+                        <p>Use the Before & After photo feature to log meals you don't finish with high accuracy. You can also do this with the Fix It button on a meal that has already been logged.</p>
+                    </div>
+                    <div class="card-image">
+                        <img src="Homepage Source/beforeafter.png" alt="OpenMeal before and after interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="screenshots-section">
+            <div class="container">
+                <div class="buttons-container">
+                    <a href="screenshots.html" class="screenshots-button">
+                        <div class="screenshots-button-content">
+                            View Screenshots
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="prompts.html" class="prompts-button">
+                        <div class="prompts-button-content">
+                            View prompts
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="author-section">
+            <div class="container">
+                <div class="author-card">
+                    <h2>About the author</h2>
+                    <div class="author-content">
+                        <div class="author-image">
+                            <img src="max-romer-profile.jpg" alt="Max Romer Profile Photo">
+                        </div>
+                        <div class="author-info">
+                            <h3>Max Romer</h3>
+                            <div class="title">Designer and Developer</div>
+                            <p>Max is an undergraduate at Stanford University, planning to major in Symbolic Systems. He grew up in Park City, UT, and enjoys hiking and following technological advancements in his free time.</p>
+                            <div class="author-links">
+                                <a href="https://www.linkedin.com/in/maxromer/" target="_blank" rel="noopener noreferrer" class="author-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                                <a href="https://github.com/maximilianromer" target="_blank" rel="noopener noreferrer" class="author-link">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
