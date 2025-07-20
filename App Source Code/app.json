@@ -1,0 +1,78 @@
+{
+  "expo": {
+    "name": "OpenMeal",
+    "slug": "openmeal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/Meal_Icon.png",
+    "notification": {
+      "icon": "./assets/images/Meal_Monochrome.png"
+    },
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.maxromer.openmeal",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "package": "com.maxromer.openmeal",
+      "softwareKeyboardLayoutMode": "resize",
+      "permissions": [
+        "android.permission.health.WRITE_NUTRITION",
+        "android.permission.USE_EXACT_ALARM"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-foreground.png",
+        "backgroundImage": "./assets/images/adaptive-background.png"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/Meal_Icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/Meal_Splash_Light.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "image": "./assets/images/Meal_Splash_Dark.png",
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      "expo-notifications",
+      "expo-web-browser",
+      "expo-health-connect",
+      "react-native-legal",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "minSdkVersion": 26
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "EXPO_PROJECT_ID"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This is an Expo React Native mobile app being developed for Android and iOS, being tested with Expo Go. The command to start the app is `npx expo start --go`. This app only uses MaterialIcons for icons.
