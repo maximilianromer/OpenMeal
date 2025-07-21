@@ -1,15 +1,13 @@
 
 # OpenMeal - A Privacy-First, AI-Powered Nutrition Tracker
 
-![OpenMeal](https://placehold.co/600x300/1e293b/ffffff?text=OpenMeal)
-
 ## Overview
 
 OpenMeal is an open-source, privacy-focused mobile nutrition tracker built with React Native and Expo. It leverages on-device machine learning and Google's Gemini API to provide users with detailed nutritional analysis from photos of their meals. All user data is stored locally, ensuring complete privacy.
 
 This README provides a technical overview of the OpenMeal project, intended for developers and contributors.
 
-**You can view the project website at https://openmeal.github.io**.
+**[You can view the project website at https://maximilianromer.github.io/OpenMeal/](https://maximilianromer.github.io/OpenMeal/)**.
 
 ## Table of Contents
 
