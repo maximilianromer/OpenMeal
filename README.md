@@ -100,13 +100,6 @@ The application utilizes React's built-in Context API and custom hooks for state
     npm install
     ```
 
-3.  **Set up environment variables:**
-    Create a `.env` file in the root of the project and add your Gemini API key:
-    ```
-    GEMINI_API_KEY=your_api_key_here
-    EXPO_PROJECT_ID=your_project_id_here
-    ```
-
 ### Running the App
 
 1.  **Start the development server:**
@@ -121,3 +114,4 @@ I built this app in about a month of summer break, with no prior experience in m
  - [Google Gemini:](https://deepmind.google/) a plethora of free tools that made this project possible
 	 - [API free tier:](https://ai.google.dev/gemini-api/docs/pricing) opened the possibility of building open tools that rely upon LLMs like this, with no cost. I have probably used hundreds of dollars of inference off this; it is a true act of altruism
 	 - [Gemini 2.5 Pro model:](https://aistudio.google.com/) Fantastic long-context analysis of the codebase, which helped me plan features and detect issues.
+
