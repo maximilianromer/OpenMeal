@@ -87,7 +87,7 @@
 
         nav {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             padding: 1.5rem 0;
         }
@@ -99,15 +99,28 @@
             text-decoration: none;
         }
 
-        .back-button {
-            color: #ECEDEE;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .back-button:hover {
+        .nav-links a {
             color: #9BA1A6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ECEDEE;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
         }
 
         /* Main Content */
@@ -348,7 +361,12 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">OpenMeal</div>
+            <a href="index.html" class="logo">OpenMeal</a>
+            <div class="nav-links">
+                <a href="screenshots.html">Screenshots</a>
+                <a href="prompts.html">Prompts</a>
+                <a href="https://github.com/maximilianromer/OpenMeal" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
         </nav>
     </header>
 
