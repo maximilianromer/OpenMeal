@@ -309,6 +309,11 @@
                 <td>3 apps</td>
                 <td>Unlimited</td>
             </tr>
+            <tr>
+                <td><strong>Push notifications</strong></td>
+                <td>Not available</td>
+                <td>Available</td>
+            </tr>
         </table>
 
         <p>Both options work fine. If you don't want to pay, just be prepared to re-run the install process every week. Your data persists across reinstalls.</p>
@@ -354,6 +359,20 @@ cd OpenMeal/App\ Source\ Code</code></pre>
         </ol>
 
         <p>If you see a bundle identifier error, change it to something unique like <code>com.yourname.openmeal</code>.</p>
+
+        <h3>Remove Push Notifications (free accounts only)</h3>
+        <p>Apple does not allow push notifications for apps installed with a free Apple ID. If you're using a free account, you must remove this capability or the build will fail. <strong>If you have a paid Apple Developer Program membership, skip this step.</strong></p>
+        <ol>
+            <li>In the project navigator, click <strong>OpenMeal</strong> (the blue project icon)</li>
+            <li>Select the <strong>OpenMeal</strong> target under TARGETS</li>
+            <li>Go to the <strong>Signing & Capabilities</strong> tab</li>
+            <li>Find the <strong>Push Notifications</strong> capability</li>
+            <li>Hover over it and click the <strong>X</strong> button to remove it</li>
+        </ol>
+
+        <div class="note">
+            Removing this capability means you won't receive meal reminder notifications. All other app features will work normally.
+        </div>
 
         <h2 id="install">Installing on your device</h2>
 
