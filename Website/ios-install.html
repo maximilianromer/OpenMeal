@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Installation - OpenMeal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-SemiBold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TikTok Sans';
+            src: url('fonts/TikTokSans-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'TikTok Sans', system-ui, sans-serif;
+            background-color: #151718;
+            color: #c9d1d9;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background-color: #151718;
+            border-bottom: 1px solid #262a2c;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 4rem 0 5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ECEDEE;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ECEDEE;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #262a2c;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ECEDEE;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            background-color: #1e2021;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #1e2021;
+            border: 1px solid #262a2c;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.875rem;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            color: #ECEDEE;
+            font-weight: 600;
+        }
+
+        .toc {
+            margin-bottom: 2rem;
+        }
+
+        .toc-title {
+            font-weight: 600;
+            color: #ECEDEE;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .toc li {
+            margin-bottom: 0.25rem;
+        }
+
+        .toc a {
+            color: #58a6ff;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            background-color: #1e2021;
+            border-left: 3px solid #3b82f6;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .warning {
+            background-color: #1e2021;
+            border-left: 3px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.6rem 1rem;
+            border: 1px solid #262a2c;
+        }
+
+        th {
+            background-color: #1e2021;
+            color: #ECEDEE;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #151718;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            pre {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">OpenMeal</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>iOS Installation</h1>
+        <p class="subtitle">Build and install OpenMeal on your iPhone from source using Xcode.</p>
+
+        <div class="warning">
+            <strong>⚠️ Warning:</strong> due to Apple's restrictions on sideloading, this app's installation must be periodically redone (7 days for free users/1 year for Developer Accounts). There is no fix for this. This installation (and reinstallation) can only be done with a computer running macOS.
+        </div>
+
+        <div class="toc">
+            <div class="toc-title">Contents</div>
+            <ul>
+                <li><a href="#prerequisites">Prerequisites</a></li>
+                <li><a href="#signing">Signing options</a></li>
+                <li><a href="#download">Downloading the source</a></li>
+                <li><a href="#build">Building the app</a></li>
+                <li><a href="#install">Installing on your device</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </div>
+
+        <h2 id="prerequisites">Prerequisites</h2>
+        <p>You'll need:</p>
+        <ul>
+            <li>A Mac (Xcode only runs on macOS)</li>
+            <li><a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode</a> installed from the Mac App Store</li>
+            <li><a href="https://nodejs.org/" target="_blank">Node.js</a> 20.x or later</li>
+            <li><a href="https://cocoapods.org/" target="_blank">CocoaPods</a> - install with <code>sudo gem install cocoapods</code></li>
+            <li>An <a href="https://appleid.apple.com/" target="_blank">Apple ID</a> (free or paid)</li>
+            <li>An iPhone and a USB cable</li>
+        </ul>
+
+        <h2 id="signing">Signing options</h2>
+        <p>Apps installed via Xcode must be signed with an Apple Developer certificate. You have two options:</p>
+
+        <table>
+            <tr>
+                <th></th>
+                <th>Free Apple ID</th>
+                <th>Apple Developer Program</th>
+            </tr>
+            <tr>
+                <td><strong>Cost</strong></td>
+                <td>$0</td>
+                <td>$99/year</td>
+            </tr>
+            <tr>
+                <td><strong>App validity</strong></td>
+                <td>7 days</td>
+                <td>1 year</td>
+            </tr>
+            <tr>
+                <td><strong>Reinstall frequency</strong></td>
+                <td>Weekly</td>
+                <td>Yearly</td>
+            </tr>
+            <tr>
+                <td><strong>Sideloaded app limit</strong></td>
+                <td>3 apps</td>
+                <td>Unlimited</td>
+            </tr>
+        </table>
+
+        <p>Both options work fine. If you don't want to pay, just be prepared to re-run the install process every week. Your data persists across reinstalls.</p>
+
+        <h2 id="download">Downloading the source</h2>
+        <p>Clone the repository:</p>
+        <pre><code>git clone https://github.com/maximilianromer/OpenMeal.git
+cd OpenMeal/App\ Source\ Code</code></pre>
+
+        <p>Or download as a ZIP from the <a href="https://github.com/maximilianromer/OpenMeal" target="_blank">GitHub repository</a> (click the green "Code" button).</p>
+
+        <h2 id="build">Building the app</h2>
+
+        <h3>Install dependencies</h3>
+        <pre><code>npm install</code></pre>
+
+        <h3>Generate the iOS project</h3>
+        <pre><code>npx expo prebuild -p ios</code></pre>
+
+        <p>This creates an <code>ios/</code> folder containing the native Xcode project. CocoaPods dependencies will be installed automatically.</p>
+
+        <div class="note">
+            If CocoaPods fails, try running <code>cd ios && pod install --repo-update</code> manually.
+        </div>
+
+        <h3>Open in Xcode</h3>
+        <pre><code>open ios/OpenMeal.xcworkspace</code></pre>
+
+        <div class="warning">
+            Open the <code>.xcworkspace</code> file, not the <code>.xcodeproj</code>. The workspace includes CocoaPods dependencies.
+        </div>
+
+        <h3>Configure signing</h3>
+        <ol>
+            <li>In Xcode, go to <strong>Xcode → Settings → Accounts</strong></li>
+            <li>Click <strong>+</strong> and sign in with your Apple ID</li>
+            <li>Select your account, click <strong>Manage Certificates</strong>, click <strong>+</strong>, select <strong>Apple Development</strong></li>
+            <li>In the project navigator, click <strong>OpenMeal</strong> (the blue project icon)</li>
+            <li>Select the <strong>OpenMeal</strong> target under TARGETS</li>
+            <li>Go to <strong>Signing & Capabilities</strong></li>
+            <li>Check <strong>Automatically manage signing</strong></li>
+            <li>Select your Apple ID from the <strong>Team</strong> dropdown</li>
+        </ol>
+
+        <p>If you see a bundle identifier error, change it to something unique like <code>com.yourname.openmeal</code>.</p>
+
+        <h2 id="install">Installing on your device</h2>
+
+        <h3>Enable Developer Mode (iOS 16+)</h3>
+        <p>On your iPhone:</p>
+        <ol>
+            <li>Connect to your Mac via USB</li>
+            <li>Go to <strong>Settings → Privacy & Security → Developer Mode</strong></li>
+            <li>Enable it and restart when prompted</li>
+            <li>After restart, confirm by tapping <strong>Turn On</strong></li>
+        </ol>
+
+        <div class="note">
+            ⚠️ The Developer Mode option only appears after connecting to a Mac with Xcode at least once.
+        </div>
+
+        <h3>Build and run</h3>
+        <ol>
+            <li>In Xcode's toolbar, select your iPhone from the device dropdown</li>
+            <li>Click <strong>Run</strong> (▶) or press <strong>Cmd+R</strong></li>
+            <li>Wait for the build to complete and install</li>
+        </ol>
+
+        <h3>Trust the certificate</h3>
+        <p>The first launch will fail with an "Untrusted Developer" error. To fix this:</p>
+        <ol>
+            <li>On your iPhone, go to <strong>Settings → General → VPN & Device Management</strong></li>
+            <li>Under "Developer App", tap your Apple ID</li>
+            <li>Tap <strong>Trust</strong> and confirm</li>
+        </ol>
+
+        <p>Now open the app from your home screen. You're done.</p>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+
+        <h3>Signing errors</h3>
+        <p>Make sure you've selected a Team in Signing & Capabilities and that "Automatically manage signing" is checked. Try changing the bundle identifier to something unique.</p>
+
+        <h3>CocoaPods issues</h3>
+        <pre><code>sudo gem install cocoapods
+cd ios && pod install --repo-update</code></pre>
+
+        <h3>Device not showing in Xcode</h3>
+        <p>Make sure Developer Mode is enabled and that you trusted your Mac when the prompt appeared on your iPhone.</p>
+
+        <h3>App stops working after 7 days</h3>
+        <p>This is expected with a free Apple ID. Reconnect your iPhone, open the project in Xcode, and press Run again. Your data is preserved.</p>
+    </main>
+</body>
+</html>
