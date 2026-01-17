@@ -562,8 +562,11 @@ export function OnboardingScreen({ onComplete, mode = 'onboarding', onCancel }: 
             key={g}
             onPress={() => setGender(g as 'male' | 'female')}
             style={[
-              styles.selectCard, 
-              { backgroundColor: colors.cardBackground },
+              styles.selectCard,
+              {
+                backgroundColor: colors.cardBackground,
+                borderColor: Platform.OS === 'ios' ? 'transparent' : undefined,
+              },
               gender === g && { borderColor: colors.tint }
             ]}
           >
@@ -706,8 +709,11 @@ export function OnboardingScreen({ onComplete, mode = 'onboarding', onCancel }: 
             key={opt.label}
             onPress={() => setActivityLevel(idx + 1)}
             style={[
-              styles.selectCard, 
-              { backgroundColor: colors.cardBackground },
+              styles.selectCard,
+              {
+                backgroundColor: colors.cardBackground,
+                borderColor: Platform.OS === 'ios' ? 'transparent' : undefined,
+              },
               activityLevel === idx + 1 && { borderColor: colors.tint }
             ]}
           >
@@ -732,8 +738,11 @@ export function OnboardingScreen({ onComplete, mode = 'onboarding', onCancel }: 
             key={opt.value}
             onPress={() => setGoal(opt.value as 'lose' | 'maintain' | 'gain')}
             style={[
-              styles.selectCard, 
-              { backgroundColor: colors.cardBackground },
+              styles.selectCard,
+              {
+                backgroundColor: colors.cardBackground,
+                borderColor: Platform.OS === 'ios' ? 'transparent' : undefined,
+              },
               goal === opt.value && { borderColor: colors.tint }
             ]}
           >
@@ -1413,6 +1422,7 @@ const styles = StyleSheet.create({
   goalValue: {
     fontSize: 32,
     fontWeight: '700',
+    lineHeight: Platform.OS === 'ios' ? 40 : undefined,
   },
   valueContainer: {
     flexDirection: 'row',

@@ -279,7 +279,7 @@ export function AddMealModal({ visible, onClose, onMealAdded }: AddMealModalProp
       <Modal
         visible={visible}
         animationType="slide"
-        presentationStyle="fullScreen"
+        presentationStyle={Platform.OS === 'ios' ? 'pageSheet' : 'fullScreen'}
         onRequestClose={handleClose}
       >
         <ThemedView style={styles.permissionContainer}>

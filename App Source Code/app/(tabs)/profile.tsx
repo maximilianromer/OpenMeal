@@ -16,7 +16,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import UserProfileService from '@/services/UserProfileService';
 import ExportImportService from '@/services/ExportImportService';
 import { ExportImportModal } from '@/components/ExportImportModal';
-import { ReactNativeLegal } from 'react-native-legal';
+import * as LicenseService from '@/services/LicenseService';
 import { useNavigation } from '@react-navigation/native';
 import { router } from 'expo-router';
 
@@ -82,7 +82,7 @@ export default function ProfileScreen() {
   };
 
   const openLicenses = () => {
-    ReactNativeLegal.launchLicenseListScreen('Open Source Licenses');
+    LicenseService.openLicenses();
   };
 
   const [healthConnectGranted, setHealthConnectGranted] = useState<boolean>(false);
